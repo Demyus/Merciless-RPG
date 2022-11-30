@@ -9,6 +9,10 @@ import Defenses from "./modules/Defenses";
 import Parry from "./modules/Parry";
 import Armors from "./modules/Armors";
 import Weapons from "./modules/Weapons";
+import Healing from "./modules/Healing";
+import Proficiencies from "./modules/profs/Proficiencies";
+import MagicalArts from "./modules/profs/MagicalArts";
+import Miracles from "./modules/profs/Miracles";
 
 import Stats from "./modules/Stats";
 
@@ -23,8 +27,9 @@ import Settings from "./Settings";
 
 import Container from "./ui/Container";
 import Card from "./ui/Card";
-import Healing from "./modules/Healing";
-import Proficiencies from "./modules/profs/Proficiencies";
+import Corruption from "./modules/profs/Corruption";
+import KiTechs from "./modules/profs/KiTechs";
+
 
 
 
@@ -105,193 +110,16 @@ function Home() {
                         <Proficiencies></Proficiencies>
                     </div>
                     <div className="col">
-                        <div className="card card-body bg-light">
-                            <h5 className="text-center boldu">Magical Arts [pow]</h5>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Conjuration<span v-if="conjurer==3">*</span></h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Conjuration" max-char-stat="maxconjuration" char-attr="conjuration" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(conjuration) + parseInt(pow) + parseInt(conjurer)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6 pe-0"><h5>Enchantment<span v-if="enchanter==3">*</span></h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Enchantment" max-char-stat="maxenchantment" char-attr="enchantment" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(enchantment) + parseInt(pow)  + parseInt(enchanter)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Evocation<span v-if="evoker==3">*</span></h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Evocation" max-char-stat="maxevocation" char-attr="evocation" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(evocation) + parseInt(pow)  + parseInt(evoker)" />
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Terramancy<span v-if="terramancer==3">*</span></h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Terramancy" max-char-stat="maxterramancy" char-attr="terramancy" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(terramancy) + parseInt(pow)  + parseInt(terramancer)" />
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Necromancy<span v-if="necromancer==3">*</span></h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Necromancy" max-char-stat="maxnecromancy" char-attr="necromancy" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(necromancy) + parseInt(pow)  + parseInt(necromancer)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <MagicalArts></MagicalArts>
                     </div>
                     <div className="col">
-                        <div className="card card-body bg-light">
-                            <h5 className="text-center boldu">Miracles [pow]</h5>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Restoration</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Restoration" max-char-stat="maxrestoration" char-attr="restoration" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(restoration) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Blessings</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Blessings" max-char-stat="maxblessings" char-attr="blessings" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(blessings) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Divination</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Divination" max-char-stat="maxdivination" char-attr="divination" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(divination) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Providence</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Providence" max-char-stat="maxprovidence" char-attr="providence" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(providence) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Exorcist</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Exorcist" max-char-stat="maxexorcist" char-attr="exorcist" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(exorcist) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Miracles></Miracles>
                     </div>
                     <div className="col">
-                        <div className="card card-body bg-light">
-                            <h5 className="text-center boldu">Corruption [pow]</h5>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Banes</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Banes" max-char-stat="maxbanes" char-attr="banes" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(banes) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Wounding</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Wounding" max-char-stat="maxwounding" char-attr="wounding" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(wounding) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-sm-6"><h5>Defiling</h5></div>
-                                <div className="col-sm-6">
-                                    <div className="row">
-                                        <div className="col-sm-7">
-                                            <Stats attr-name="Defiling" max-char-stat="maxdefiling" char-attr="defiling" v-on-inputchange="updateprofs"></Stats>
-                                        </div>
-                                        <div className="col-sm-5 ">
-                                            <input className="text-end form-control form-control-sm" type="text" disabled defaultValue="parseInt(defiling) + parseInt(pow)" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Corruption></Corruption>
                     </div>
                     <div className="col">
-
+                        <KiTechs></KiTechs>
                     </div>
                 </div>
             </div>

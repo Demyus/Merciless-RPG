@@ -5,6 +5,7 @@ const Stats = (props) => {
   const title = props.type ? props.type : "N/A";
   const maxCharStat = 5;
   const statRef = useRef();
+  const header = props.small ? <h5>{title}</h5> : <h4>{title}</h4>
 
   const addStat = (e) => {
     if (currentStat === 5) {
@@ -28,7 +29,7 @@ const Stats = (props) => {
   return (
     <div className="row">
       <div className="col-sm-8">
-        <h4>{title}</h4>
+        {header}
       </div>
       <div className="col-sm-4 text-center ps-0">
         <div className="row">
