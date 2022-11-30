@@ -41,7 +41,7 @@ const HealPota = (props) => {
         </div>
         <div className="row">
             <div className="col mt-n2">
-                <button className={classes.btnNone + ' ' + healClass.potaicon } click="dmgtoggle" ><img src={potionImg} alt="Potion Image"/></button>                
+                <button className={classes.btnNone + ' ' + healClass.potaicon } click="dmgtoggle" ><img src={potionImg} alt="Potion"/></button>                
             </div>
         </div>
     </>
