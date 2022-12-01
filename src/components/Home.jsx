@@ -13,11 +13,14 @@ import Healing from "./modules/Healing";
 import Proficiencies from "./modules/profs/Proficiencies";
 import MagicalArts from "./modules/profs/MagicalArts";
 import Miracles from "./modules/profs/Miracles";
+import Corruption from "./modules/profs/Corruption";
+import KiTechs from "./modules/profs/KiTechs";
+import Perks from "./modules/perks/Perks";
 
 import Stats from "./modules/Stats";
 
 
-import Perks from "./Perks";
+
 import Gears from "./Gears"
 import SpellsMagicalArts from "./SpellsMagicalArts";
 import SpellsMiracles from "./SpellsMiracles";
@@ -27,8 +30,7 @@ import Settings from "./Settings";
 
 import Container from "./ui/Container";
 import Card from "./ui/Card";
-import Corruption from "./modules/profs/Corruption";
-import KiTechs from "./modules/profs/KiTechs";
+
 
 
 
@@ -128,25 +130,19 @@ function Home() {
             <div id="perkos" className="container mt-3">
                 <div className="row">
                     <div id="perk_container" className="col">
-                        <div className="card card-body bg-light">
-                            <h4 className="text-center boldu">Perks</h4>
-                            <div className="col-sm-12">
-                                <p id="racial_feat"><b>Racial Feat:</b> other</p>
-                            </div>
-                            <Perks data-v-for="item in 5" data-v-on-selectchange="updateperks"></Perks>
-                        </div>
+                        <Perks></Perks>
                     </div>
                 </div>
             </div>
 
             {/*---------------------------------------------------------------------- */}
             <div className="container mt-3">
-                <div className="card card-body bg-light">
+                <Card>
                     <h4 className="text-center">Skills: <span id="skill_points">skills</span></h4>
                     <div className="row" id="skillz">
-                        <div id="skillsstr" className="col px-1">
-                            <h4 className="text-center">STR <span className="skillStr">[str]</span></h4>
-                            <div className="col border p-3">
+                        <div id="skillsstr" className="col">
+                            <div className="col">
+                                <h4 className="text-center">STR <span className="skillStr">[str]</span></h4>
                                 <div className="row">
                                     <div className="col-sm-6 pe-0 text-center">
                                         Athletics
@@ -340,7 +336,7 @@ function Home() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Card>
 
                 <div className="pagebreak"></div>
                 <div className="printseparator"><br /><br /><br /><br /></div>

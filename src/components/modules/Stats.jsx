@@ -17,7 +17,6 @@ const Stats = (props) => {
   };
 
   const removeStat = (e) => {
-    //console.log(title, '' , statRef.current)
     if (currentStat === 0) {
       e.preventDefault();
       return;
@@ -28,31 +27,17 @@ const Stats = (props) => {
 
   return (
     <div className="row">
-      <div className="col-sm-8">
-        {header}
-      </div>
+      <div className="col-sm-8">{header}</div>
       <div className="col-sm-4 text-center ps-0">
         <div className="row">
           <div className="col-4 px-0">
-            <button className="btn btn-sm" onClick={removeStat}>
-              -
-            </button>
+            <button className="btn btn-sm" onClick={removeStat}>-</button>
           </div>
           <div className="col-4 px-0">
-            <input
-              disabled
-              ref={statRef}
-              className="form-control form-control-sm text-center p-0"
-              min="0"
-              max={maxCharStat}
-              maxLength="1"
-              value={currentStat}
-            />
+            <input disabled ref={statRef} className="form-control form-control-sm text-center p-0" min="0" max={maxCharStat} maxLength="1" value={currentStat} />
           </div>
           <div className="col-4 px-0">
-            <button className="btn btn-sm" onClick={addStat}>
-              +
-            </button>
+            <button className="btn btn-sm" onClick={addStat}>+</button>
           </div>
         </div>
       </div>
