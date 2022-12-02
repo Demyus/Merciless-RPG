@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
+  background: url(img/brick-wall-background.jpg) center center;
 }
 
 code {
@@ -14,4 +17,12 @@ code {
 
 textarea {
   resize: none;
+}
+
+.btn-group-sm>.btn, .btn-sm { 
+  --bs-btn-padding-x: 0.25rem; 
+}
+
+.card-body {
+  box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 50%);
 }

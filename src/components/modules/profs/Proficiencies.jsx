@@ -1,5 +1,5 @@
 import Card from "../../ui/Card";
-import Stats from "../Stats";
+import Stats from "../stats/Stats";
 
 const Proficiencies = (props) => {
   return (
