@@ -7,7 +7,7 @@ const Card = (props) => {
     const extraClasses = props.classes ? props.classes : '';
 
     return (    
-          <div className={"card card-body bg-light " + extraClasses } style={ props.styles && props.styles }>
+          <div className={"card card-body bg-dark " + extraClasses } style={ props.styles && props.styles }>
               {props.children}
           </div>    
     ) 
