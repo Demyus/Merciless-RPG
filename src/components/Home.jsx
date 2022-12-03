@@ -32,7 +32,7 @@ function Home() {
             <div className="my-3"></div>
             <Container fluid={true} classes={'sticky-md-top'} >
                 <Card>
-                    <Navbar></Navbar>
+                    <Navbar />
                 </Card>
             </Container>
 
@@ -51,7 +51,7 @@ function Home() {
                         <Saves></Saves>
                     </div>
                     <div className="col-sm-3" id="Condition_container">
-                       <Conditions></Conditions>
+                       <Conditions />
                     </div>
                 </div>
 
@@ -59,36 +59,36 @@ function Home() {
                     <div className="col-sm-9 ">
                         <div className="row pb-3">
                             <div className="col-sm-4">
-                                <Edge></Edge>
+                                <Edge />
                             </div>
                             <div className="col-sm-4">
-                                <SpellSave></SpellSave>
+                                <SpellSave />
                             </div>
                             <div className="col-sm-4">
-                                <MiraclesSave></MiraclesSave>
+                                <MiraclesSave />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
-                                <Defenses></Defenses>
+                                <Defenses />
                             </div>
                             <div className="col-sm-4 ">
-                                <Parry></Parry>
+                                <Parry />
                             </div>
                             <div className="col-sm-4 ">
-                                <Armors></Armors>
+                                <Armors />
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-3">
-                        <Healing></Healing>
+                        <Healing />
                     </div>
                 </div>
             </Container>
 
             <div id="weaponos" className="container mt-4">
                 <div className="row">
-                    <Weapons></Weapons>
+                    <Weapons />
                 </div>
             </div>
 
@@ -98,19 +98,19 @@ function Home() {
                         <h5 className="points_counter">Standard Array: 3,2,2,1</h5>
                     </div>
                     <div className="col">
-                        <Proficiencies></Proficiencies>
+                        <Proficiencies />
                     </div>
                     <div className="col">
-                        <MagicalArts></MagicalArts>
+                        <MagicalArts />
                     </div>
                     <div className="col">
-                        <Miracles></Miracles>
+                        <Miracles />
                     </div>
                     <div className="col">
-                        <Corruption></Corruption>
+                        <Corruption />
                     </div>
                     <div className="col">
-                        <KiTechs></KiTechs>
+                        <KiTechs />
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ function Home() {
             <div id="perkos" className="container mt-3">
                 <div className="row">
                     <div id="perk_container" className="col">
-                        <Perks></Perks>
+                        <Perks />
                     </div>
                 </div>
             </div>
@@ -126,27 +126,27 @@ function Home() {
             <div className="container mt-3">
                 <Card>
                     <h4 className="text-center">Skills: <span id="skill_points">skills</span></h4>
-                    <Skills></Skills>
+                    <Skills />
                 </Card>
             </div>
 
             <div className="container mt-3">
                 <div className="row mt-3">
                     <div className="col-sm-10 pe-0">
-                        <Gear></Gear>
+                        <Gear />
                     </div>
                     <div className="col-sm-2">
-                        <Wealth></Wealth>
+                        <Wealth />
                     </div>
                 </div>
             </div>
 
             <div className="container mt-3">
-                <Spellbook></Spellbook>
+                <Spellbook />
             </div>
 
             <Pcjournal notes="notes" notes2="notes2" notes3="notes3" v-on-journalchange="updatejournal"></Pcjournal>
-            <Settings options="1"></Settings>
+            <Settings options="1"  />
             <div className="py-5"></div>
         </>
     );
