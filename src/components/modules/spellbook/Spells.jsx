@@ -1,10 +1,9 @@
 
-const SpellsMagicalArts = (props) => {
-
+const Spells = (props) => {
     return (
         <div class="row mt-3">
             <div class="col-sm-2 pe-0">
-                <strong>Name</strong>
+                <strong>{props.school}</strong>
                 <select class="form-select" v-model="spelldesc" id="count" change="(event) => this.$emit('selectchange', event, count)">
                     <option value="0" >Choose...</option>
                     <optgroup v-for="(spellschool, index1) in magicalarts" key="index1" label="index1">
@@ -13,13 +12,16 @@ const SpellsMagicalArts = (props) => {
                     
                 </select>
             </div>
-            <div class=" col-sm-10">
+            <div class=" col-sm-9">
                 <strong>Description</strong>
                 <textarea class="form-control" readonly id="'desc'+count">spelldesc</textarea>
             </div>
+            <div className="col-sm-1">
+                <button className="btn btn-lg btn-dark"><i class="bi bi-dash-circle-fill"></i></button>
+                <button className="btn btn-lg btn-dark"><i class="bi bi-plus-circle-fill"></i></button>
+            </div>
         </div>
     )
-
 }
 
-export default SpellsMagicalArts
+export default Spells
