@@ -1,3 +1,4 @@
+import RaceSelect from "./RaceSelect";
 
 const Navbar = props => {
     return (
@@ -6,15 +7,7 @@ const Navbar = props => {
             <div className="text-center col"><label data-for="char_age">Age</label><input model="age" className="form-control form-control-sm" type="text" name="" id="char_age" /></div>
             <div className="text-center col"><label data-for="char_height">Height</label><input model="charheight" className="form-control form-control-sm" type="text" name="" id="char_height" /></div>
             <div className="text-center col-sm-2"><label data-for="char_race">Race</label>
-                <select name="char_race" id="char_race" className="form-select form-select-sm" change="selectrace($event)" model="race">
-                    <option value="human">Human [Max 5 attributes | 2 perks at creation]</option>
-                    <option value="elf">Elf [Max AGI 6 | Max STAM 4 | Low light Vision]</option>
-                    <option value="dwarf">Dwarf [Max STAM 6 | Max AGI 4 | Darkvision]</option>
-                    <option value="goblin">Goblin [Max STAM, STR 4 | Max Weapon Prof 6 | Max Evocation 6 | Low light vision]</option>
-                    <option value="halfelf">Half-Elf [Max STAM 4 | Max CHA 6 | Low light vision]</option>
-                    <option value="orc">Orc [Max STR, STAM 6 | Max AGI 3 | Low light vision]</option>
-                    <option value="halfling">Halfling [Max STR 4 | Max AGI 6 | Starts with GUTS perk]</option>
-                </select>
+                <RaceSelect></RaceSelect>
             </div>
             <div className="text-center col px-0"><label data-for="char5">Religion</label><input model="chareligion" className="form-control form-control-sm" type="text" name="" id="char5" /></div>
             <div className="text-center col pe-0"><label data-for="char6">Sex</label><input model="sex" className="form-control form-control-sm" type="text" name="" id="char6" /></div>

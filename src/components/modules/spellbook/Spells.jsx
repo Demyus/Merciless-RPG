@@ -7,18 +7,18 @@ const Spells = (props) => {
                 <select class="form-select" v-model="spelldesc" id="count" change="(event) => this.$emit('selectchange', event, count)">
                     <option value="0" >Choose...</option>
                     <optgroup v-for="(spellschool, index1) in magicalarts" key="index1" label="index1">
-                        <option v-for="(spell, index) in spellschool" key="spell.name" value="index1 +' '+index">spell.name</option>
+                        <option v-for="(spell, index) in spellschool" key="spell.name" defaultValue="index1 +' '+index">spell.name</option>
                     </optgroup>
                     
                 </select>
             </div>
             <div class=" col-sm-9">
                 <strong>Description</strong>
-                <textarea class="form-control" readonly id="'desc'+count">spelldesc</textarea>
+                <textarea class="form-control" disabled id="'desc'+count">spelldesc</textarea>
             </div>
-            <div className="col-sm-1">
-                <button className="btn btn-lg btn-dark"><i class="bi bi-dash-circle-fill"></i></button>
-                <button className="btn btn-lg btn-dark"><i class="bi bi-plus-circle-fill"></i></button>
+            <div className="col-sm-1 hstack px-0 pt-4">
+                <button className="btn btn-lg btn-danger p-2"><i class="bi bi-dash-circle"></i></button> 
+                <button className="btn btn-lg btn-success p-2 ms-3"><i class="bi bi-plus-circle"></i></button>
             </div>
         </div>
     )
