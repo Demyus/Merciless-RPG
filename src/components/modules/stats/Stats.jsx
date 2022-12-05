@@ -1,24 +1,39 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { charStatActions } from "../../../store/stats-slice";
+import { profActions } from "../../../store/proficiencies-slice";
 
 const Stats = (props) => {
   const dispatch = useDispatch();
   // get data from the Store
   const stat = useSelector(state => state.charStats );
+  const profs = useSelector(state => state.proficiencies);
+
   const title = props.type ? props.type : "N/A";  
   const statRef = useRef();
  
   const header = props.small ? <h5>{title}</h5> : <h4>{title}</h4>
 
   // init stats not accounted for
-  let currentStat = 0;  
-  if(stat[props.type]){
-    currentStat = stat[props.type]
+  let currentStat = 0;
+  if(props.slice === 'profs') {
+    // Proficiencies logic
+    if(profs[props.type]){
+      currentStat = profs[props.type]
+    } else {
+      dispatch(profActions.initStat(props.type));
+      currentStat = profs[props.type]
+    }
   } else {
-    dispatch(charStatActions.initStat(props.type));
-    currentStat = stat[props.type]
-  }
+    // default Core Stat logic
+    if(stat[props.type]){
+      currentStat = stat[props.type]
+    } else {
+      dispatch(charStatActions.initStat(props.type));
+      currentStat = stat[props.type]
+    }
+  } 
+  
 
   // init max stat not accounted for
   let currentMax = 5;  
@@ -31,20 +46,39 @@ const Stats = (props) => {
 
 
   const addStat = (e) => {
-    //console.log(stat)
-    if (stat[props.type] === stat[`max${[props.type]}`]) {
-      e.preventDefault();
-      return;
+    if(props.slice === 'profs') {
+      if (profs[props.type] === profs[`max${[props.type]}`]) {
+        e.preventDefault();
+        return;
+      }
+      dispatch(profActions.addProf(props.type))
+    } else {
+      if (stat[props.type] === stat[`max${[props.type]}`]) {
+        e.preventDefault();
+        return;
+      }
+      dispatch(charStatActions.addStat(props.type))
     }
-    dispatch(charStatActions.addStat(props.type))
+    
   };
 
   const removeStat = (e) => {
-    if (stat[props.type] === 0) {
-      e.preventDefault();
-      return;
+    if(props.slice === 'profs') {
+      if (profs[props.type] === 0) {
+        e.preventDefault();
+        return;
+      }
+      dispatch(profActions.removeProf(props.type))
+    } else {
+      if (stat[props.type] === 0) {
+        e.preventDefault();
+        return;
+      }
+      dispatch(charStatActions.removeStat(props.type))
     }
-    dispatch(charStatActions.removeStat(props.type))
+
+
+    
   };
 
   return (

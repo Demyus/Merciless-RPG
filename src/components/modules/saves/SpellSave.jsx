@@ -1,6 +1,10 @@
 import Card from "../../ui/Card";
+import { useSelector } from "react-redux";
 
 const SpellSave = (props) => {
+  const stat = useSelector(state => state.charStats)
+  const noPow = stat.Power === 0 || stat.Intuition === 0 || stat.Logic === 0
+
   return (
     <Card>
       <div className="row">
@@ -9,8 +13,8 @@ const SpellSave = (props) => {
           [LOG + INT]
         </div>
         <div className="col text-center d-flex align-items-center justify-content-center">
-          <h2>(log)+(int)</h2>
-          <span if="(pow) == 0 || (int) == 0 || (log) == 0">No Power</span>
+          {!noPow && <h2>{stat.Logic + stat.Intuition}</h2>}
+          { noPow && <span>No Power</span>}
         </div>
       </div>
     </Card>
