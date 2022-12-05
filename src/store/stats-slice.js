@@ -19,6 +19,16 @@ const initialStats = {
     maxIntuition:5,
     maxCharisma:5,
     maxPower:5,
+    currentArmor: 0,
+    armorInit: 0,
+    armorDodge:0,
+    armorEncumbrance: 0,
+    currentShield: 0,
+    shieldEncumbrance: 0,
+    shieldParry: 0,
+    shieldInit: 0,
+
+
 }
 
 const charStatSlice = createSlice({
@@ -32,6 +42,11 @@ const charStatSlice = createSlice({
         initMax(state, action) {
             const stat = action.payload;
             state[`max${stat}`] = 5;
+        },
+        setStat(state, action) {
+            const amount = action.payload.amount;
+            const stat = action.payload.stat;
+            state[stat] = amount;
         },
         addStat(state, action) {
             const stat = action.payload;

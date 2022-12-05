@@ -2,7 +2,13 @@ import Card from "../../ui/Card";
 import ArmorsList from "./ArmorsList";
 import ShieldLists from "../shields/ShieldsList";
 
+import { useSelector } from "react-redux";
+
 const Armors = (props) => {
+  const stat = useSelector(state => state.charStats );
+  const perk = false;
+  const totalEncumbrance = (stat.Strength + stat.Stamina) * 2;
+
   return (
     <Card>
       <div className="row">
@@ -26,10 +32,9 @@ const Armors = (props) => {
       <div className="row">
         <div className="col text-center">
           <p className="mb-0">
-            Encumbrance[FORT x 2]: <span id="encumbrance"> encumbrance </span> /
-            parseInt(fortitude)*2{" "}
+            Encumbrance <small>[FORT x 2]</small>: <span id="encumbrance"> {+stat.armorEncumbrance + +stat.shieldEncumbrance} </span> / {totalEncumbrance}            
           </p>
-          <span if="bloodnsteel">Blood and Steel +1 Parry</span>
+          {perk && <span if="bloodnsteel">Blood and Steel +1 Parry</span>}
         </div>
       </div>
     </Card>
