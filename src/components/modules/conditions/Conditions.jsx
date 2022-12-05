@@ -27,7 +27,6 @@ const Conditions = (props) => {
         setCurrentStun(existingStunDmg);
     }
 
-
     useEffect(() => {
         const totalLethalHp = 5+((stat.Stamina)*2);
         dispatch(conditionActions.setTotal({type: 'Lethal', amount: totalLethalHp}));
@@ -62,21 +61,12 @@ const Conditions = (props) => {
         }
     }
 
-        for (let x = 0; x < currentLethal; x++) {
-            hp.push(<HearthButton type="Lethal" key={x} doDmg={doDmg} removeDmg={removeDmg} dmged={false}  />)
-        }
-        for (let z = 0; z < condition.lethalDmg; z++) {
-            hpDmged.push(<HearthButton type="Lethal" key={z} doDmg={doDmg} removeDmg={removeDmg}  dmged={true} />)
-        }
-    
-        for (let y = 0; y < currentStun; y++) {
-            stun.push(<HearthButton type="Stun" key={y} doDmg={doDmg} removeDmg={removeDmg} dmged={false} />)
-        }
-        for (let w = 0; w < condition.stunDmg; w++) {
-            stunDmged.push(<HearthButton type="Stun" key={w} doDmg={doDmg} removeDmg={removeDmg} dmged={true} />)
-        }
-   
-    
+    for (let x = 0; x < currentLethal; x++) { hp.push(<HearthButton type="Lethal" key={x} doDmg={doDmg} removeDmg={removeDmg} dmged={false}  />) }
+    for (let z = 0; z < condition.lethalDmg; z++) { hpDmged.push(<HearthButton type="Lethal" key={z} doDmg={doDmg} removeDmg={removeDmg}  dmged={true} />) }
+
+    for (let y = 0; y < currentStun; y++) { stun.push(<HearthButton type="Stun" key={y} doDmg={doDmg} removeDmg={removeDmg} dmged={false} />) }
+    for (let w = 0; w < condition.stunDmg; w++) { stunDmged.push(<HearthButton type="Stun" key={w} doDmg={doDmg} removeDmg={removeDmg} dmged={true} />) }
+
     return (
         <Card>
             <h4 className="text-center boldu">Condition</h4>

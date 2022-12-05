@@ -26,7 +26,11 @@ import Settings from "./modules/settings/Settings";
 import Container from "./ui/Container";
 import Card from "./ui/Card";
 
+import { useSelector } from "react-redux";
+
 function Home() {
+    const stat = useSelector(state => state.charStats );
+    const totalStats = stat.Strength + stat.Agility + stat.Stamina + stat.Edge + stat.Logic + stat.Intuition + stat.Charisma + stat.Power
     return (
         <>
             <div className="my-3"></div>
@@ -38,7 +42,7 @@ function Home() {
 
             <Container classes={'mt-3'}>
                 <div className="col-12 text-center my-4">
-                    <h5 className="points_counter">Standard Array: 3,3,2,2,1,1,1 (Edge or Power) - total: <span> totalStat </span></h5>
+                    <h5 className="points_counter">Standard Array: 3,3,2,2,1,1,1 (Edge or Power) - total: <span> {totalStats} </span></h5>
                 </div>
                 <div className="row">
                     <div className="col-6 col-sm-3">
