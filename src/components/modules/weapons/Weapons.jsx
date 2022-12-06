@@ -1,14 +1,17 @@
 import Card from "../../ui/Card";
 import WeaponsList from "./WeaponsList";
+import { useSelector } from "react-redux";
 
 const Weapons = (props) => {
+  const stat = useSelector(state => state.charStats);
+  const perks = false;
   return (
     <Card>
       <div className="col-sm-12 well">
         <h4 className="text-center boldu">Weapons</h4>
-        <WeaponsList></WeaponsList>
-        <WeaponsList></WeaponsList>
-        <WeaponsList></WeaponsList>
+        <WeaponsList slot={1}></WeaponsList>
+        <WeaponsList slot={2}></WeaponsList>
+        <WeaponsList slot={3}></WeaponsList>
         <div className="row mb-2" id="customWPN1">
             <div className="pb-1  col-sm-3">
                 <b>Name</b>
@@ -63,11 +66,24 @@ const Weapons = (props) => {
           </div>
         </div>
         <br />
-        <div data-v-show="bloodnsteel">
-          <b>Blood & Steel:</b> One handed weapon bonus +1 to LD
-          <span data-v-show="shield2 == -2 || shield2 == -1" className="text-danger" >
-            [Shield Required]
-          </span>
+        <div className="row">
+          <div className="col">
+            <h5>Perks:</h5>
+            {perks && (<div>
+              <b>Blood & Steel:</b> One handed weapon bonus +1 to LD
+              <span data-v-show="shield2 == -2 || shield2 == -1" className="text-danger" >
+                [Shield Required]
+              </span>
+            </div>)}
+            {!perks && <p>N/A</p>}
+          </div>
+          <div className="col">
+              <h5>Note:</h5>
+              <strong>Damage:</strong> Weapon Damage + STR[{stat.Strength}]  <br/>
+              <strong>Hit:</strong> Weapon Accuracy + Proficiency + Agility[{stat.Agility}] + other/perks <br/>
+          </div>
+
+          
         </div>
       </div>
     </Card>

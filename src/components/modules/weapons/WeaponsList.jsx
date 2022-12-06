@@ -1,4 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { gearActions } from "../../../store/gear-slice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const weapons = {
     Blades: [
@@ -40,13 +43,31 @@ const weapons = {
 }
 //console.log(Object.keys(weapons))
 const WeaponsList = (props) => {
+    const stat = useSelector(state => state.charStats);
+    const [selectedWpn, setSelectedWpn] = useState({
+        hit: '-',
+        type: '-',
+        reach: '-',
+        damage: '-',
+        props: '-',
+    });
 
-    const hit = false;
-
+    const dispatch = useDispatch();
+    //const gear = useSelector(state => state.gear);
     const currentWpn = useRef();
 
     const updateWeapon = () => {
         const id = currentWpn.current.value;
+        if(id === 'none') {
+            setSelectedWpn({hit: '-',
+            type: '-',
+            reach: '-',
+            damage: '-',
+            props: '-',});
+
+            dispatch(gearActions.setGear({gear: `weapon${props.slot}`, amount: id}))
+            return
+        }
         //console.log(id)
         const details = Object.keys(weapons)
         const result = []
@@ -59,8 +80,14 @@ const WeaponsList = (props) => {
             })
             return null
         })
-
-
+        setSelectedWpn({
+            hit: result[0].hit + stat.Agility,
+            type: result[0].type,
+            reach: result[0].reach,
+            damage: result[0].damage + stat.Strength,
+            props: result[0].props,
+        })
+        dispatch(gearActions.setGear({gear: `weapon${props.slot}`, amount: +id}))
         //console.log(result[0].name);
     }
 
@@ -93,26 +120,27 @@ const WeaponsList = (props) => {
         <div className=" col-sm-1  text-center">
             <b data-bs-toggle="tooltip" data-bs-placement="top" title="'acc + prof + agi + other'" >HIT</b>
             <hr className="my-1" />
-            {!hit && '-' || '**' }
+            {selectedWpn.hit}
         </div>
         <div className=" col-sm-1  text-center">
             <b>Type</b>
             <hr className="my-1" />
-                type
+            {selectedWpn.type}
         </div>
         <div className=" col-sm-1  text-center">
             <b>Reach</b>
             <hr className="my-1" />
-                reach
+            {selectedWpn.reach}
         </div>
         <div className=" col-sm-1  text-center">
             <b data-bs-toggle="tooltip" data-bs-placement="top" title="'STR + WPN'" >Damage<span v-show="bloodnsteel && type != 'Ranged' && type != 'Mechanical' && hands == 1 ">*</span></b>
             <hr className="my-1" />
+            {selectedWpn.damage}
         </div>
         <div className=" col">
             <b>Properties</b>
             <hr className="my-1" />
-            properties
+            {selectedWpn.props}
         </div>
     </div>
   );
