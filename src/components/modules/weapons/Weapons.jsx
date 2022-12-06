@@ -6,9 +6,9 @@ const Weapons = (props) => {
     <Card>
       <div className="col-sm-12 well">
         <h4 className="text-center boldu">Weapons</h4>
-        <WeaponsList data-v-on-selectchange="updateselected"></WeaponsList>
-        <WeaponsList data-v-on-selectchange="updateselected"></WeaponsList>
-        <WeaponsList data-v-on-selectchange="updateselected"></WeaponsList>
+        <WeaponsList></WeaponsList>
+        <WeaponsList></WeaponsList>
+        <WeaponsList></WeaponsList>
         <div className="row mb-2" id="customWPN1">
             <div className="pb-1  col-sm-3">
                 <b>Name</b>

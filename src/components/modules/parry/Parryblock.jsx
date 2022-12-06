@@ -13,7 +13,7 @@ const Parryblock = (props) => {
           <small id="parryDesc">[WPN + AGI + (Penalty)]</small>
         </div>
         <div className="col-sm-3">
-          <input className="form-control" type="text" name={props.parryName} disabled value={parryValue} key={'prof'+props.parryName} />
+          <input className="form-control text-center" type="text" name={props.parryName} disabled value={parryValue} key={'prof'+props.parryName} />
         </div>
       </div>
   );

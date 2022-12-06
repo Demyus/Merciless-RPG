@@ -3,6 +3,7 @@ import charStatSlice from './stats-slice';
 import perksSlice from "./perks-slice";
 import conditionSlice from "./condition-slice";
 import profSlice from "./proficiencies-slice";
+import gearSlice from "./gear-slice";
 
 const store = configureStore({
     reducer: { 
@@ -10,6 +11,8 @@ const store = configureStore({
         condition: conditionSlice.reducer,
         perks: perksSlice.reducer,
         proficiencies: profSlice.reducer,
+        gear: gearSlice.reducer,
+        
     }
 });
 

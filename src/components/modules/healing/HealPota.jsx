@@ -1,26 +1,31 @@
-import { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { gearActions } from "../../../store/gear-slice";
 
 import potionImg from '../../../img/ico-potion.png';
 import classes from "../conditions/Conditions.module.css";
 import healClass from "./Healing.module.css";
 
 const HealPota = (props) => {
-    let [currentStat, setCurrentStat] = useState(0);
-    const statRef = useRef();
-  
-    const addStat = (e) => {
-      currentStat++;
-      setCurrentStat(currentStat);
+    const gear = useSelector(state => state.gear);
+    const dispatch = useDispatch();
+    const pots = [];
+
+    const addPota = (e) => {
+      dispatch(gearActions.addGear(props.type))
     };
   
-    const removeStat = (e) => {
-      if (currentStat === 0) {
+    const removePota = (e) => {
+      if (gear[props.type] === 0) {
         e.preventDefault();
         return;
       }
-      currentStat--;
-      setCurrentStat(currentStat);
+      dispatch(gearActions.removeGear(props.type))
     };
+
+      for (let x = 0; x < gear[props.type]; x++) {
+          pots.push(<button className={classes.btnNone + ' ' + healClass.potaicon } onClick={removePota} key={'pota'+x} ><img src={potionImg} alt={props.type}/></button>)
+      }
+
   return (
     <>
         <div className="row">
@@ -28,20 +33,20 @@ const HealPota = (props) => {
             <div className="col ps-0">
                 <div className="row">
                 <div className="col-4 px-0">
-                    <button className="btn btn-sm btn-dark" onClick={removeStat}><i className="bi bi-caret-left-fill"></i></button>
+                    <button className="btn btn-sm btn-dark" onClick={removePota}><i className="bi bi-caret-left-fill"></i></button>
                 </div>
                 <div className="col-4 px-0">
-                    <input disabled ref={statRef} className="form-control form-control-sm text-center p-0" min="0" value={currentStat} />
+                    <input disabled className="form-control form-control-sm text-center p-0" min="0" value={gear[props.type]} />
                 </div>
                 <div className="col-4 px-0">
-                    <button className="btn btn-sm btn-dark" onClick={addStat}><i className="bi bi-caret-right-fill"></i></button>
+                    <button className="btn btn-sm btn-dark" onClick={addPota}><i className="bi bi-caret-right-fill"></i></button>
                 </div>
                 </div>
             </div>
         </div>
-        <div className="row">
+        <div className="row pb-2">
             <div className="col mt-n2">
-                <button className={classes.btnNone + ' ' + healClass.potaicon } click="dmgtoggle" ><img src={potionImg} alt="Potion"/></button>                
+                {pots}
             </div>
         </div>
     </>
