@@ -90,7 +90,7 @@ const Stats = (props) => {
             <button className="btn btn-sm btn-dark" onClick={removeStat}><i className="bi bi-caret-left-fill"></i></button>
           </div>
           <div className="col-4 px-0">
-            <input disabled ref={statRef} className="form-control form-control-sm text-center p-0" min="0" max={currentMax} maxLength="1" value={currentStat} />
+            <input disabled ref={statRef} className="form-control form-control-sm text-center p-0" min="0" max={currentMax} maxLength="1" value={currentStat} key={title} />
           </div>
           <div className="col-4 px-0">
             <button className="btn btn-sm btn-dark" onClick={addStat}><i className="bi bi-caret-right-fill"></i></button>
