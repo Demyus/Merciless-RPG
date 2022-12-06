@@ -6,7 +6,10 @@ const initialGear = {
     "Full Potions": 0,
     "Healing Kit":  0,
     "Healing Kit+2":0,
-
+    weapon1: 0,
+    weapon2: 0,
+    weapon3: 0,
+    
 }
 
 const gearSlice = createSlice({

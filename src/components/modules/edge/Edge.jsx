@@ -17,8 +17,8 @@ const Edge = (props) => {
     dispatch(charStatActions.removeStat('usedEdge'))
   } 
 
-  for (let x = 0; x < (stat.Edge - stat.usedEdge); x++) { edge.push(<button className={classes.btnNone}  onClick={useEdge} >🔴</button>) }
-  for (let z = 0; z < stat.usedEdge; z++)    { edgeUsed.push(<button className={classes.btnNone} onClick={recoverEdge} >⚪</button>) }
+  for (let x = 0; x < (stat.Edge - stat.usedEdge); x++) { edge.push(<button className={classes.btnNone}  onClick={useEdge} key={`edg${x}`} >🔴</button>) }
+  for (let z = 0; z < stat.usedEdge; z++)    { edgeUsed.push(<button className={classes.btnNone} onClick={recoverEdge} key={`edgUsed${z}`}>⚪</button>) }
 
   return (
     <Card>
