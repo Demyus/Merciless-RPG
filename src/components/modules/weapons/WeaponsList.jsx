@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { gearActions } from "../../../store/gear-slice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch,  useSelector } from "react-redux";
 
 const weapons = {
     Blades: [

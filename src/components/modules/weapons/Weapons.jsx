@@ -1,6 +1,7 @@
 import Card from "../../ui/Card";
 import WeaponsList from "./WeaponsList";
 import { useSelector } from "react-redux";
+import WeaponCustom from "./WeaponCustom";
 
 const Weapons = (props) => {
   const stat = useSelector(state => state.charStats);
@@ -9,64 +10,13 @@ const Weapons = (props) => {
     <Card>
       <div className="col-sm-12 well">
         <h4 className="text-center boldu">Weapons</h4>
-        <WeaponsList slot={1}></WeaponsList>
-        <WeaponsList slot={2}></WeaponsList>
-        <WeaponsList slot={3}></WeaponsList>
-        <div className="row mb-2" id="customWPN1">
-            <div className="pb-1  col-sm-3">
-                <b>Name</b>
-                <input type="text" className="form-control form-control-sm" v-model="customwpn1name" />
-            </div>
-            <div className="pb-1  col-sm-1  text-center">
-                <b>HIT</b>
-                <input type="text" className="form-control form-control-sm text-center" v-model="customwpn1hit" />
-            </div>
-            <div className="pb-1  col-sm-1  text-center">
-                <b>Type</b>
-                <input
-                type="text" className="form-control form-control-sm text-center" v-model="customwpn1type" />
-            </div>
-            <div className="pb-1  col-sm-1  text-center">
-                <b>Reach</b>
-                <input type="text" className="form-control form-control-sm text-center" v-model="customwpn1reach" />
-            </div>
-            <div className="pb-1  col-sm-1  text-center">
-                <b data-bs-toggle="tooltip" data-bs-placement="top" data-title="'STR + WPN'" >Damage</b>
-                <input type="text" className="form-control form-control-sm text-center" v-model="customwpn1damage" />
-            </div>
-            <div className="pb-1  col">
-                <b>Properties</b>
-                <input type="text" className="form-control form-control-sm" v-model="customwpn1properties" />
-            </div>
-        </div>
-        <div className="row" id="customWPN2">
-          <div className="pb-1  col-sm-3">
-            <b>Name</b>
-            <input type="text" className="form-control form-control-sm" v-model="customwpn2name" />
-          </div>
-          <div className="pb-1  col-sm-1  text-center">
-            <b>HIT</b>
-            <input type="text" className="form-control form-control-sm text-center" v-model="customwpn2hit" />
-          </div>
-          <div className="pb-1  col-sm-1  text-center">
-            <b>Type</b>
-            <input type="text" className="form-control form-control-sm text-center" v-model="customwpn2type" />
-          </div>
-          <div className="pb-1  col-sm-1  text-center">
-            <b>Reach</b>
-            <input type="text" className="form-control form-control-sm text-center" v-model="customwpn2reach" />
-          </div>
-          <div className="pb-1  col-sm-1  text-center">
-            <b data-bs-toggle="tooltip" data-bs-placement="top" data-title="'STR + WPN'" >Damage</b>
-            <input type="text" className="form-control form-control-sm text-center" v-model="customwpn2damage" />
-          </div>
-          <div className="pb-1  col">
-            <b>Properties</b>
-            <input type="text" className="form-control form-control-sm" v-model="customwpn2properties" />
-          </div>
-        </div>
-        <br />
-        <div className="row">
+        <WeaponsList slot={1} />
+        <WeaponsList slot={2} />
+        <WeaponsList slot={3} />
+        <WeaponCustom custom={1} />
+        <WeaponCustom custom={2} />
+
+        <div className="row mt-3">
           <div className="col">
             <h5>Perks:</h5>
             {perks && (<div>
