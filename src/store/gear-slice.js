@@ -9,7 +9,18 @@ const initialGear = {
     weapon1: 0,
     weapon2: 0,
     weapon3: 0,
-    
+    custom_1_name: '',
+    custom_1_hit: '',
+    custom_1_type: '',
+    custom_1_reach: '',
+    custom_1_damage: '',
+    custom_1_properties: '',
+    custom_2_name: '',
+    custom_2_hit: '',
+    custom_2_type: '',
+    custom_2_reach: '',
+    custom_2_damage: '',
+    custom_2_properties: '',
 }
 
 const gearSlice = createSlice({
