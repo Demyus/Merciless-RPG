@@ -29,8 +29,8 @@ const Weapons = (props) => {
           </div>
           <div className="col">
               <h5>Note:</h5>
-              <strong>Damage:</strong> Weapon Damage + STR[{stat.Strength}]  <br/>
-              <strong>Hit:</strong> Weapon Accuracy + Proficiency + Agility[{stat.Agility}] + other/perks <br/>
+              <strong>Damage Calculation:</strong> Weapon Damage + STR[{stat.Strength}]  <br/>
+              <strong>Hit Calculation:</strong> Weapon Accuracy + Proficiency + Agility[{stat.Agility}] + other/perks <br/>
           </div>
 
           
