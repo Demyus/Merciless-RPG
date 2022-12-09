@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { gearActions } from "../../../store/gear-slice";
 
-const WeaponCustomInput = props => {
+const WeaponCustomInput = (props) => {
     const dispatch = useDispatch();
     const customRef = useRef();
 
