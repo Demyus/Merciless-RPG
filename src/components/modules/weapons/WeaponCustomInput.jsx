@@ -1,15 +1,13 @@
 import { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { gearActions } from "../../../store/gear-slice";
 
-const WeaponCustomInput = props => {
+const WeaponCustomInput = (props) => {
     const dispatch = useDispatch();
     const customRef = useRef();
-    const gear = useSelector(state => state.gear)
-
+    
     const saveData = () => {
         dispatch(gearActions.setGear({gear: props.custom, amount: customRef.current.value }))
-        //console.log(gear);
     };
 
     return (
