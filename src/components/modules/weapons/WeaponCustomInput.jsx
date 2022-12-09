@@ -5,7 +5,6 @@ import { gearActions } from "../../../store/gear-slice";
 const WeaponCustomInput = (props) => {
     const dispatch = useDispatch();
     const customRef = useRef();
-
     const saveData = () => {
         dispatch(gearActions.setGear({gear: props.custom, amount: customRef.current.value }))
     };
