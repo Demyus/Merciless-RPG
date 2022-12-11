@@ -1,8 +1,15 @@
+import { useSelector } from "react-redux";
+
 import Input from "./Input";
 import RaceSelect from "./RaceSelect";
 
-const Navbar = (props) => {
 
+const Navbar = (props) => {
+    const stats = useSelector(state => state.charStats)
+
+    const showState = () => {
+        console.log(stats)
+    }
 
 
     return (
@@ -40,7 +47,7 @@ const Navbar = (props) => {
             <div className="col-sm-2 text-center  pe-xxl-5">
                 <label data-for="">Last Save: lastsave</label><br />
                 <div className="d-flex justify-content-around">
-                    <button className="btn btn-sm btn-primary" click="savedata()">Save</button>
+                    <button className="btn btn-sm btn-primary" click="savedata()" onClick={showState}>Save</button>
                     <button className="btn btn-sm btn-dark" click="loadlast()">Load</button>
                     <button className="btn btn-sm btn-danger" click="clearlocal()">Delete</button>
                     <button className="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#settings"><i className="bi-gear-fill"></i></button>
