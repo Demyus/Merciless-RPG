@@ -8,11 +8,11 @@ const Perks = (props) => {
         <div className="col-sm-12">
             <p id="racial_feat"><b>Racial Feat:</b> other</p>
         </div>
-        <PerksList data-v-for="item in 5" data-v-on-selectchange="updateperks"></PerksList>
-        <PerksList data-v-for="item in 5" data-v-on-selectchange="updateperks"></PerksList>
-        <PerksList data-v-for="item in 5" data-v-on-selectchange="updateperks"></PerksList>
-        <PerksList data-v-for="item in 5" data-v-on-selectchange="updateperks"></PerksList>
-        <PerksList data-v-for="item in 5" data-v-on-selectchange="updateperks"></PerksList>
+        <PerksList key="perk1"></PerksList>
+        <PerksList key="perk2"></PerksList>
+        <PerksList key="perk3"></PerksList>
+        <PerksList key="perk4"></PerksList>
+        <PerksList key="perk5"></PerksList>
     </Card>
   );
 };
