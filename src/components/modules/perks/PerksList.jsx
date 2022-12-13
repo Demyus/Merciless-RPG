@@ -1,5 +1,7 @@
 
 import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { perksActions } from "../../../store/perks-slice";
 
 const perks = [
   { id: 0,  name: 'Select Perk...',        desc: '...'},
@@ -39,17 +41,19 @@ const perks = [
 const PerksList = (props) => {
   const [currentPerkDesc, setCurrentPerkDesc] = useState('...');
   const selectedPerk = useRef();
+  const dispatch = useDispatch();
 
   const perkChangeHandler = () => {
-    console.log(selectedPerk.current.value);
-    console.log(perks[selectedPerk.current.value].desc)
+    //console.log(selectedPerk.current.value);
+    //console.log(perks[selectedPerk.current.value].desc)
       setCurrentPerkDesc(perks[selectedPerk.current.value].desc);
+      dispatch(perksActions.addPerk({slot: props.slot, id: selectedPerk.current.value}))
   }
 
   return (
     <div className="row my-2">
         <div className="col-sm-3">
-        <select  className="form-select" onChange={perkChangeHandler} ref={selectedPerk} >
+        <select id={props.slot} className="form-select" onChange={perkChangeHandler} ref={selectedPerk} >
             {perks.map( (perk, i) => {
               return (
                 <option key={`perko${i}`} value={perk.id}  >{perk.name}</option>

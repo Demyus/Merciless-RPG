@@ -12,23 +12,23 @@ const shields = [
 
 const ShieldLists = (props) => {
     const [parry, setParry] = useState(-2);
-    const selectedShield = useRef()
+    const selectedShield = useRef();
     const dispatch = useDispatch();
-    const profs = useSelector(state => state.proficiencies)
+    const profs = useSelector(state => state.charStats);
     
     const updateShield = (e) => {
         //console.log('Shield is:', selectedShield.current.selectedOptions[0].dataset.parry);
         setParry(selectedShield.current.selectedOptions[0].dataset.parry)        
-        dispatch(charStatActions.setStat({stat: 'currentShield', amount: selectedShield.current.selectedOptions[0].dataset.id }))
-        dispatch(charStatActions.setStat({stat: 'shieldParry', amount: selectedShield.current.selectedOptions[0].dataset.parry }))
-        dispatch(charStatActions.setStat({stat: 'shieldEncumbrance', amount: selectedShield.current.selectedOptions[0].dataset.encumbrance }))
-        dispatch(charStatActions.setStat({stat: 'shieldInit', amount: selectedShield.current.selectedOptions[0].dataset.init }))
+        dispatch(charStatActions.setStat({stat: 'currentShield',     amount: +selectedShield.current.value }))
+        dispatch(charStatActions.setStat({stat: 'shieldParry',       amount: +selectedShield.current.selectedOptions[0].dataset.parry }))
+        dispatch(charStatActions.setStat({stat: 'shieldEncumbrance', amount: +selectedShield.current.selectedOptions[0].dataset.encumbrance }))
+        dispatch(charStatActions.setStat({stat: 'shieldInit',        amount: +selectedShield.current.selectedOptions[0].dataset.init }))
         //console.log('armor is:', e.target.selectedOptions[0].dataset.dmg); currentArmor
     }
 
     return (
         <div>
-            <select name="shields" id="shield" className="form-select" onChange={updateShield} ref={selectedShield}>
+            <select name="shields" id="shield" className="form-select" onChange={updateShield} ref={selectedShield} defaultValue={0}>
                 { shields.map(shield => {
                     return (
                         <option key={shield.id} value={shield.id}  disabled={profs.Armor < shield.reqs ? 'disabled' : ''}
