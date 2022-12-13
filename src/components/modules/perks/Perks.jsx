@@ -8,11 +8,11 @@ const Perks = (props) => {
         <div className="col-sm-12">
             <p id="racial_feat"><b>Racial Feat:</b> other</p>
         </div>
-        <PerksList key="perk1"></PerksList>
-        <PerksList key="perk2"></PerksList>
-        <PerksList key="perk3"></PerksList>
-        <PerksList key="perk4"></PerksList>
-        <PerksList key="perk5"></PerksList>
+        <PerksList slot="slot1"></PerksList>
+        <PerksList slot="slot2"></PerksList>
+        <PerksList slot="slot3"></PerksList>
+        <PerksList slot="slot4"></PerksList>
+        <PerksList slot="slot5"></PerksList>
     </Card>
   );
 };

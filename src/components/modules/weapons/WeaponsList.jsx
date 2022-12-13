@@ -96,8 +96,8 @@ const WeaponsList = (props) => {
         <div className=" col-sm-3">
             <b>Name</b>
             <hr className="my-1" />
-            <select className="form-select mb-1" onChange={updateWeapon} ref={currentWpn}>
-                <option id="id" value="none" selected>Choose...</option>
+            <select className="form-select mb-1" onChange={updateWeapon} ref={currentWpn} defaultValue="none">
+                <option value="none" >Choose...</option>
                 {   Object.keys(weapons).map(wpn => {                    
                    return (
                         <optgroup key={wpn+'Parent'} label={wpn} >

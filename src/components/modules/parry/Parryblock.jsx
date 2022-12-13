@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 
 const Parryblock = (props) => {
-  const profs = useSelector(state => state.proficiencies);
   const stat = useSelector(state => state.charStats );
 
-  const parryValue = +profs[props.parryName] + +stat.Agility + +stat.shieldParry;
+  const parryValue = +stat[props.parryName] + +stat.Agility + +stat.shieldParry;
 
   return (
       <div className="row">

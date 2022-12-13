@@ -1,22 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const perksSlice = createSlice({
     name: 'perks',
     initialState: {
-        perks: []
+            slot1: 0, 
+            slot2: 0, 
+            slot3: 0, 
+            slot4: 0, 
+            slot5:0
     },
     reducers: {
         addPerk(state, action) {
-            const newPerk = action.payload;
-            // check if the perk exists...
-            const existingPerk = state.perks.find(perks => perks.id === newPerk.id);
-            //if not exists, add it
-            if(!existingPerk) {
-                state.perks.push({perkId: newPerk.id, perkName: newPerk.name, perkDesc: newPerk.desc});
-            } else {
-                console.log('already exists...');
-            }
-            
+           const perk = action.payload;
+           state[perk.slot] = perk.id;
         },
         removePerk(state, action) {
             const id = action.payload;

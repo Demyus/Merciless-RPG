@@ -22,24 +22,24 @@ const ArmorsList = (props) => {
     const dispatch = useDispatch();
     const [damageReduction, setDamageReduction] = useState('N/A');
     const [other, setOther] = useState('');
-    const profs = useSelector(state => state.proficiencies)
+    const profs = useSelector(state => state.charStats)
     const selectedArmor = useRef();
 
     const updateArmor = (e) => {
         //console.log('armor is:', selectedArmor.current.selectedOptions[0].dataset.dmg);
         setDamageReduction(selectedArmor.current.selectedOptions[0].dataset.dmg)
         setOther(selectedArmor.current.selectedOptions[0].dataset.other)
-        dispatch(charStatActions.setStat({stat: 'currentArmor', amount: selectedArmor.current.selectedOptions[0].dataset.init }))
-        dispatch(charStatActions.setStat({stat: 'armorDodge', amount: selectedArmor.current.selectedOptions[0].dataset.dodge }))
-        dispatch(charStatActions.setStat({stat: 'armorEncumbrance', amount: selectedArmor.current.selectedOptions[0].dataset.encumbrance }))
-        dispatch(charStatActions.setStat({stat: 'armorInit', amount: selectedArmor.current.selectedOptions[0].dataset.init }))
+        dispatch(charStatActions.setStat({stat: 'currentArmor',     amount: +selectedArmor.current.value }))
+        dispatch(charStatActions.setStat({stat: 'armorDodge',       amount: +selectedArmor.current.selectedOptions[0].dataset.dodge }))
+        dispatch(charStatActions.setStat({stat: 'armorEncumbrance', amount: +selectedArmor.current.selectedOptions[0].dataset.encumbrance }))
+        dispatch(charStatActions.setStat({stat: 'armorInit',        amount: +selectedArmor.current.selectedOptions[0].dataset.init }))
         //console.log('armor is:', e.target.selectedOptions[0].dataset.dmg); currentArmor
     }
 
     return (
         <div>
-            <select id="pcarmor" className="form-select mb-1" onChange={updateArmor} ref={selectedArmor}>
-                <option selected value="N/A" key={'armor'+0} data-dmg="N/A"  data-other=""  data-encumbrance={0} data-init={0} data-dodge={0} >No Armor</option>                
+            <select id="pcarmor" className="form-select mb-1" onChange={updateArmor} ref={selectedArmor} defaultValue="N/A">
+                <option value="N/A" key={'armor'+0} data-dmg="N/A"  data-other=""  data-encumbrance={0} data-init={0} data-dodge={0} >No Armor</option>                
                 { armors.map(armor => {
                     return (
                         <optgroup label={Object.keys(armor)} key={'parent'+Object.keys(armor)} >
