@@ -129,7 +129,7 @@ function Home() {
 
             <div className="container mt-3">
                 <Card>
-                    <h4 className="text-center">Skills: <span id="skill_points">skills</span></h4>
+                    <h4 className="text-center">Skills: <span id="skill_points">12 points</span></h4>
                     <Skills />
                 </Card>
             </div>
