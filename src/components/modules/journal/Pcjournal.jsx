@@ -14,17 +14,17 @@ const Pcjournal = (props) => {
                     <div className="row">
                         <div className="col px-0">
                         <label htmlFor="j1">Quests</label>
-                            <textarea name="" id="j1" className="form-control" cols="30" rows="5"  v-on-change="(event) => this.$emit('journalchange', event)"> notes </textarea>
+                            <textarea name="" id="j1" className="form-control" cols="30" rows="5" defaultValue="Notes"></textarea>
                         </div>
                         <div className="col pe-0">
                             <label htmlFor="j2">Etc</label>
-                            <textarea name="" id="j2" className="form-control" cols="30" rows="5"  v-on-change="(event) => this.$emit('journalchange', event)"> notes2 </textarea>
+                            <textarea name="" id="j2" className="form-control" cols="30" rows="5" defaultValue="Notes2"></textarea>
                         </div>
                     </div>
                     <div className="row mt-3">
                         <div className="col px-0">
                             <label htmlFor="j3">General Notes</label>
-                            <textarea name="" id="j3" className="form-control" cols="30" rows="10"  v-on-change="(event) => this.$emit('journalchange', event)"> notes3 </textarea>
+                            <textarea name="" id="j3" className="form-control" cols="30" rows="10" defaultValue="Notes3"></textarea>
                         </div>
                     </div>
                 </div>
