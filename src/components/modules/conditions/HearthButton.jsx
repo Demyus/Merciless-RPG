@@ -1,15 +1,19 @@
-import { useState } from 'react'
-import classes from './Conditions.module.css'
+import classes from './Conditions.module.css';
+import { useDispatch } from 'react-redux';
+import { conditionActions } from '../../../store/condition-slice';
 
 const HearthButton = props => {
-const dmged = props.dmged;
+    const dispatch = useDispatch();
+
+    const dmged = props.dmged;
 
    const addDmg = () => {
-        props.doDmg(props.type)
+        dispatch(conditionActions.addDmg(props.type))        
     }
     const healDmg = () => {
-        props.removeDmg(props.type)
+        dispatch(conditionActions.removeDmg(props.type))
     }
+    
     return (
         <>
         {props.type === "Stun" &&
