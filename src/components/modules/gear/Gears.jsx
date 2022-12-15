@@ -1,13 +1,31 @@
 
 const Gears = (props) => {
+  const gears = props.gearList;
+
+  //console.log(gears)
 
   return (
     <div className="mb-2">
-        <select className="form-select mb-1"  change="(event) => this.$emit('selectchange', event, count)" defaultValue={0}>
+        <select className="form-select mb-1"  defaultValue={0}>
             <option value="0" >Choose...</option>
-            <optgroup v-for="(gear, index1) in gears" key="index1" label="index1" >
-                <option v-for="(gea, index) in gear"  id="index1"  key="index" defaultValue="index1 +' '+index">gea.name gea.cost+'GP'</option>
-            </optgroup>
+            {
+              gears.map( (item, i) => {
+                return(
+                  <optgroup key={i} label={Object.keys(item)} >
+                    {
+                      item[Object.keys(item)].map(equip => {
+                          return (
+                            <option id={equip.id}  key={equip.id} value={equip.id} data-cost={equip.cost} >{equip.name} - [{equip.cost}GP]</option>
+                          )
+                      })
+                    }
+                  </optgroup>
+                )
+              })
+            }
+            
+                
+            
         </select>
     </div>
   );
