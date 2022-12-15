@@ -8,6 +8,7 @@ body {
   background-color: #000000;
   color: #ffffff;
   background: url(img/brick-wall-background.jpg) center center fixed;
+  background-size: cover;
 }
 
 code {
