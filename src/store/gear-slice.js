@@ -22,6 +22,13 @@ const initialGear = {
     custom_2_reach: '',
     custom_2_damage: '',
     custom_2_properties: '',
+    
+    Platinum: 0,
+    Gold: 200,
+    Silver: 0,
+    'Gems & Jewelry': 0,
+    Rations: 0,
+
 }
 
 const gearSlice = createSlice({
