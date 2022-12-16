@@ -6,6 +6,7 @@ import profSlice from "./proficiencies-slice";
 import gearSlice from "./gear-slice";
 import pcSlice from "./pc-slice";
 import skillsSlice from "./skills-slice";
+import spellsSlice from "./spells-slice";
 
 const store = configureStore({
     reducer: { 
@@ -16,6 +17,7 @@ const store = configureStore({
         proficiencies: profSlice.reducer,
         gear: gearSlice.reducer,
         skills: skillsSlice.reducer,
+        spells: spellsSlice.reducer,
         
     }
 });

@@ -1,12 +1,17 @@
+import { useRef } from "react";
 
 const Gears = (props) => {
   const gears = props.gearList;
+  const gearo = useRef();
 
-  //console.log(gears)
+  const gearHandler = () => {
+    //console.log(gearo.current.selectedOptions[0].dataset.cost)
+  }
+  
 
   return (
     <div className="mb-2">
-        <select className="form-select mb-1"  defaultValue={0}>
+        <select className="form-select mb-1"  defaultValue={0} onChange={gearHandler} ref={gearo} >
             <option value="0" >Choose...</option>
             {
               gears.map( (item, i) => {

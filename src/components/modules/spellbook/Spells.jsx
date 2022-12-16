@@ -4,10 +4,10 @@ const Spells = (props) => {
         <div className="row mt-3">
             <div className="col-sm-2 pe-0">
                 <strong>{props.school}</strong>
-                <select className="form-select" v-model="spelldesc" change="(event) => this.$emit('selectchange', event, count)" defaultValue={0}>
+                <select className="form-select" defaultValue={0}>
                     <option value="0" >Choose...</option>
-                    <optgroup v-for="(spellschool, index1) in magicalarts" key="index1" label="index1">
-                        <option v-for="(spell, index) in spellschool" key="spell.name" value={1}>spell.name</option>
+                    <optgroup label="index1">
+                        <option value={1}>spell.name</option>
                     </optgroup>
                     
                 </select>
