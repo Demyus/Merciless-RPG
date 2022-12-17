@@ -1,10 +1,19 @@
 
+import { spellsActions } from "../../../store/spells-slice";
+import { useDispatch } from "react-redux";
+
 const Spells = (props) => {
+    const dispatch = useDispatch();
+
+    const getSpells = () => {
+        console.log(props.spells[0]);
+    }
+
     return (
         <div className="row mt-3">
             <div className="col-sm-2 pe-0">
                 <strong>{props.school}</strong>
-                <select className="form-select" defaultValue={0}>
+                <select onChange={getSpells} className="form-select" defaultValue={0}>
                     <option value="0" >Choose...</option>
                     <optgroup label="index1">
                         <option value={1}>spell.name</option>

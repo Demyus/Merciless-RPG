@@ -1,18 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialStats = {
-    Athletics: -2,
+    spell: 0,
 
 }
 
 const spellsSlice = createSlice({
     name: 'spells',
     initialState: initialStats,
-    reducers: {
-        initStat(state, action) {
-            const stat = action.payload;
-            state[stat] = 0;
-        },
+    reducers: {        
         initMax(state, action) {
             const stat = action.payload;
             state[`max${stat}`] = 5;
