@@ -9,15 +9,21 @@ const Spells = (props) => {
         console.log(props.spells[0]);
     }
 
+
     return (
         <div className="row mt-3">
             <div className="col-sm-2 pe-0">
                 <strong>{props.school}</strong>
                 <select onChange={getSpells} className="form-select" defaultValue={0}>
-                    <option value="0" >Choose...</option>
-                    <optgroup label="index1">
-                        <option value={1}>spell.name</option>
-                    </optgroup>
+                    <option value="N/A" >Choose...</option>
+                    { Object.keys(props.spells).map((school, i) => {
+                        return(
+                            <optgroup key={`skul${i}`} label={school}>                                
+                                <option value={1}>spell.name</option>
+                            </optgroup>
+                        )
+                    }) }
+                    
                     
                 </select>
             </div>

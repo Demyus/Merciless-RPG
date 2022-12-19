@@ -7,8 +7,8 @@ import Spells from "./Spells";
 // Evocation: 43 - 56
 // Terramancy: 57 - 70
 
-const magicalarts = [
-    // Enchanting
+const magicalarts = {
+    Enchanting: [
         { id: 0, name: "Bewitch"       , desc: "Charm target creature to be your friend or fall in love. Hits determine duration in rounds Resolve save DC POW"},
         { id: 1, name: "Stun bolt"     , desc: "Sends a creature into a magical slumber, Hits + POW cause Stun Damage saving throw of Resolve DC POW"},
         { id: 2, name: "Sleep"         , desc: "Rends creatures into a magical slumber in an area of POW+HITS Mts. Spell causes 10 SD saving throw of Resolve DC POW"},
@@ -22,7 +22,7 @@ const magicalarts = [
         { id: 10, name: "Valor "        , desc: "Gain immunity against fear effects Hits determine duration in minutes"},
         { id: 11, name: "Levitate"      , desc: "Levitate yourself or target creature. Hits determine duration in minutes"},
         { id: 12, name: "Identify"      , desc: "Identify magical properties of an item"},
-    // Conjuring
+    ], Conjuring: [
         { id: 13, name: "Summon Ifrit"    , desc: "Summon a fire elemental to aid you, Power determines Health and DR of the Ifrit. Hits determine duration in rounds "},
         { id: 14, name: "Summon Undine"   , desc: "Summon a Water elemental to aid you, Power determines Health and DR of the Undine. Hits determine duration in rounds"},
         { id: 15, name: "Summon Sylph"    , desc: "Summon a Wind elemental to aid you, Power determines Health and DR of the Sylph. Hits determine duration in rounds"},
@@ -36,7 +36,7 @@ const magicalarts = [
         { id: 23, name: "Entangle"        , desc: "Create a foliage that entangle foes that try to cross . Hits determine duration in rounds"},
         { id: 24, name: "Web"             , desc: "Sling thick webbing that paralyzes a foe, can use them to climb surfaces. Hits determine duration in minutes"},
         { id: 25, name: "Call Lighting"   , desc: "Call fort the power of Lighting on a target area. Attack hits 3 Targets Power+Hits determine damage Ref Save DC POW ( Hits 1st Target for Full damage, Second target for half and last target for half of that rounded up) "},
-    // Necromancy
+    ], Necromancy: [
         { id: 26, name: "Animate undead"    , desc: "Raise a corpse from the dead as an undead under your control corpse stats and abilities are the same as they were in Life. Hits determine duration in minutes need a corpse to animate"},
         { id: 27, name: "Create undead"     , desc: "Gather parts of corpses to create an undead Golem. Hits determines Duration Stats of Undead Golem and Armor +1 Physical stat per POW Health 5+ Pow"},
         { id: 28, name: "Atrophy"           , desc: "Weaken target creature causing str based damage by half. Hits determine Duration in rounds. Fort Save DC POW"},
@@ -54,7 +54,7 @@ const magicalarts = [
         { id: 40, name: "Death Knight"      , desc: "Summons a Death knight to fight by your side. Hits determine Duration in rounds POW = Stats of Death knight and Armor +1 physical stat per POW Health 5 + stamina"},
         { id: 41, name: "Word of Power Kill / Orcus Claw", desc: "Utter a corrupted word in the demonic languaje, causing Lethal damage to the target. Fort Save POW. If save fails Target falls dead. If Target saves, Hits determine Lethal Damage"},
         { id: 42, name: "Wight"             , desc: "Summons a Wight to fight by your side. Hits determine Duration in rounds POW = Stats of Wight and Armor +1 Mental stat per POW Health 5+ Pow"},
-    // Evocation
+    ], Evocation: [
         { id: 43, name: "Fireblast"     , desc: "Create a surge of fire that engulfs 3 targets. Power+Hits determine Damage Ref Save DC POW for half damage"},
         { id: 44, name: "Ball Lightning", desc: "Create a sphere of lightning that you can direct to a target area affecting 3.Power+Hits determine Damage Ref Save DC POW for half damage"},
         { id: 45, name: "Fireball"      , desc: "Create a sphere of flames that you can direct to a target area affecting POW mts.Power+Hits determine Damage"},
@@ -69,7 +69,7 @@ const magicalarts = [
         { id: 54, name: "Levitate"      , desc: "Levitate yourself or target creature that you can see. Hits determine Duration in rounds, POW determines Targets affected"},
         { id: 55, name: "Firebolt"      , desc: "Target a creature in sight and fire a bolt of flames that deals flaming damage. Hits+POW determine damage Fort Save POW DC. "},
         { id: 56, name: "Ice Maiden"    , desc: "Target a creature in sight and Freeze him inside a spiked sarcophagus of ice causing 3 LD and rendering him immobile. Ref Save DC POW if Ref save is met you only receive 3 LD (Damage cant be mitigated). If Ref save failed then target is restrained and must make a Fort Save of POW or be restrained until you save or die (can save every turn)"},
-    // Terramancy
+    ], Terramancy: [
         { id: 57, name: "Speak with Animals", desc: "Gain the ability to speak with animals and beasts. Hits determine duration in minutes"},
         { id: 58, name: "Control Weather"   , desc: "Manipulate the weather at will, causing rain, wind, storms or other kind of weather manipulation. Hits determine reach of change in Miles"},
         { id: 59, name: "Bark Skin"         , desc: "Gain DR+3 for physical damage. Hits determine duration in rounds"},
@@ -84,8 +84,8 @@ const magicalarts = [
         { id: 68, name: "Water Breathing"   , desc: "Breathe under water Hits determine duration in minutes "},
         { id: 69, name: "Magma Surge"       , desc: "Summon the power of raging volcanic fires from within the earth to Melt your foes. Melted stones surge from the ground up causing Blazing fires to surround a target creature you can see causing POW+ Hits LD Fort Save POW DC"},
         { id: 70, name: "Stone Skin"        , desc: "Gain DR+3 for Magical damage. Hits determine duration "},
-]
-
+]}
+   
 const Spellbook = (props) => {
 
   return (
@@ -104,7 +104,7 @@ const Spellbook = (props) => {
                 <Spells school="Magical Arts" spells={magicalarts} ></Spells>
             </div>
             <div className="tab-pane fade" id="miracls" role="tabpanel" aria-labelledby="miracls-tab">
-                <Spells school="Miracles" spells={magicalarts}></Spells>
+                <Spells school="Miracles" spells={magicalarts} ></Spells>
 
             </div>
             <div className="tab-pane fade" id="corrupted" role="tabpanel" aria-labelledby="corrupted-tab">
