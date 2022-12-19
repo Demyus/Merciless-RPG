@@ -48,13 +48,11 @@ const skillsSlice = createSlice({
            // console.log(stat);
         },
         removeSkill(state, action) {
-            const skill = action.payload;
-            if(state[skill] === 1) {
-                state[skill] = -2;    
-                return
-            }
-            state[skill] = state[skill] - 1;
-           // console.log(stat);
+            const spell = action.payload;            
+            
+            //remove spell
+            state.spells = state.spells.filter(currSpell => currSpell !== spell )
+
         }
     }
 })

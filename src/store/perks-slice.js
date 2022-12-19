@@ -8,7 +8,7 @@ const perksSlice = createSlice({
             slot2: 0, 
             slot3: 0, 
             slot4: 0, 
-            slot5:0
+            slot5: 0
     },
     reducers: {
         addPerk(state, action) {
