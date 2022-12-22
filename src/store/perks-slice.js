@@ -20,6 +20,14 @@ const perksSlice = createSlice({
             //remove perk
             state.perks = state.perks.filter(perk => perk.id !== id )
             
+        },
+        addSlot(state, action) {
+            const perk = action.payload;
+            state[`${perk} spellsSlots`] = state[`${perk} spellsSlots`] + 1;
+        },
+        removeSlot(state, action) {
+            const perk = action.payload;
+            state[`${perk} spellsSlots`] = state[`${perk} spellsSlots`] - 1;
         }
     }
 })
