@@ -16,6 +16,13 @@ const PerksList = (props) => {
       dispatch(perksActions.addPerk({slot: props.slot, id: selectedPerk.current.value}))
   }
 
+  const addSlot = () => {
+    dispatch(perksActions.addSlot(props.school));
+  }
+  const removeSlot = () => {
+      dispatch(perksActions.removeSlot(props.school));
+  }
+
   return (
     <div className="row my-2">
         <div className="col-sm-2">
@@ -32,7 +39,12 @@ const PerksList = (props) => {
         <textarea className="form-control" disabled value={currentPerkDesc}></textarea>
         </div>
         <div className="col-sm-1">
-            controls
+           { props.controls && 
+                <div className="col-sm-1 hstack px-0 pt-4">
+                    { !props.first && <button onClick={removeSlot} className="btn btn-lg btn-danger p-2"><i className="bi bi-dash-circle"></i></button> }
+                    <button onClick={addSlot} className="btn btn-lg btn-success p-2 ms-3"><i className="bi bi-plus-circle"></i></button>
+                </div>            
+            }
         </div>
     </div>
   );
