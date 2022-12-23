@@ -36,6 +36,13 @@ const perks = [
   { id: 31, name: 'Weapon Mastery',        desc: 'Gain +2 Dice to your attack DP for your weapon of choice'},
 ] 
 
+const numPerks = 2;
+const perkSlots = [];
+
+for (let x = 1; x <= numPerks; x++) {
+  perkSlots.push(<PerksList key={`perkoSlot${x}`} slot={`slot${x}`} perks={perks} controls={x === numPerks? true : false } />)
+}
+
 const Perks = (props) => {
   return (
     <Card>
@@ -43,11 +50,8 @@ const Perks = (props) => {
         <div className="col-sm-12">
             <p id="racial_feat"><b>Racial Feat:</b> other</p>
         </div>
-        <PerksList slot="slot1" perks={perks} />
-        <PerksList slot="slot2" perks={perks} />
-        <PerksList slot="slot3" perks={perks} />
-        <PerksList slot="slot4" perks={perks} />
-        <PerksList slot="slot5" perks={perks} />
+        {perkSlots}
+        
     </Card>
   );
 };
