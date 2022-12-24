@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const perksSlice = createSlice({
     name: 'perks',
     initialState: {
+            slots: 1,
             slot1: 0, 
             slot2: 0, 
             slot3: 0, 
@@ -21,13 +22,11 @@ const perksSlice = createSlice({
             state.perks = state.perks.filter(perk => perk.id !== id )
             
         },
-        addSlot(state, action) {
-            const perk = action.payload;
-            state[`${perk} spellsSlots`] = state[`${perk} spellsSlots`] + 1;
+        addSlot(state) {            
+            state.slots = state.slots + 1;
         },
-        removeSlot(state, action) {
-            const perk = action.payload;
-            state[`${perk} spellsSlots`] = state[`${perk} spellsSlots`] - 1;
+        removeSlot(state) {            
+            state.slots = state.slots - 1;
         }
     }
 })

@@ -8,7 +8,7 @@ const PerksList = (props) => {
   const [currentPerkDesc, setCurrentPerkDesc] = useState('...');
   const selectedPerk = useRef();
   const dispatch = useDispatch();
-
+  
   const perkChangeHandler = () => {
     //console.log(selectedPerk.current.value);
     //console.log(perks[selectedPerk.current.value].desc)
@@ -17,10 +17,10 @@ const PerksList = (props) => {
   }
 
   const addSlot = () => {
-    dispatch(perksActions.addSlot(props.school));
+    dispatch(perksActions.addSlot());
   }
   const removeSlot = () => {
-      dispatch(perksActions.removeSlot(props.school));
+      dispatch(perksActions.removeSlot());
   }
 
   return (
