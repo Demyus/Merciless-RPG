@@ -1,5 +1,6 @@
 import PerksList from "./PerksList";
 import Card from "../../ui/Card";
+import { useSelector } from "react-redux";
 
 const perks = [
   { id: 0,  name: 'Select Perk...',        desc: '...'},
@@ -36,14 +37,26 @@ const perks = [
   { id: 31, name: 'Weapon Mastery',        desc: 'Gain +2 Dice to your attack DP for your weapon of choice'},
 ] 
 
-const numPerks = 2;
-const perkSlots = [];
-
-for (let x = 1; x <= numPerks; x++) {
-  perkSlots.push(<PerksList key={`perkoSlot${x}`} slot={`slot${x}`} perks={perks} controls={x === numPerks? true : false } />)
-}
-
 const Perks = (props) => {
+  const perkSlice = useSelector(state=>state.perks);  
+  const perkSlots = [];
+
+  const generatePerkSlots = () => {
+    for (let x = 1; x <= perkSlice.slots; x++) {
+      perkSlots.push( 
+        <PerksList 
+          key={`perkoSlot${x}`} 
+          slot={`slot${x}`} 
+          perks={perks} 
+          controls={x === perkSlice.slots? true : false } 
+          first={x === 1}
+        />
+      )
+    }
+  }
+
+  generatePerkSlots();
+
   return (
     <Card>
         <h4 className="text-center boldu">Perks</h4>
