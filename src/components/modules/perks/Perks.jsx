@@ -45,11 +45,13 @@ const Perks = (props) => {
     for (let x = 1; x <= perkSlice.slots; x++) {
       perkSlots.push( 
         <PerksList 
-          key={`perkoSlot${x}`} 
-          slot={`slot${x}`} 
-          perks={perks} 
-          controls={x === perkSlice.slots? true : false } 
-          first={x === 1}
+          key = {`perkoSlot${x}`} 
+          slot = {`slot${x}`} 
+          perks = {perks} 
+          controls = {x === perkSlice.slots? true : false } 
+          first = {x === 1}
+          last = {x === 5}
+          slots = {perkSlice.slots}
         />
       )
     }
