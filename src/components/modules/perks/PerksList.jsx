@@ -13,7 +13,7 @@ const PerksList = (props) => {
     //console.log(selectedPerk.current.value);
     //console.log(perks[selectedPerk.current.value].desc)
       setCurrentPerkDesc(perks[selectedPerk.current.value].desc);
-      dispatch(perksActions.addPerk({slot: props.slot, id: selectedPerk.current.value}))
+      dispatch(perksActions.addPerk({slot: props.slot, id: +selectedPerk.current.value}))
   }
 
   const addSlot = () => {
