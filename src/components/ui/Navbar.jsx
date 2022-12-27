@@ -5,7 +5,7 @@ import RaceSelect from "./RaceSelect";
 
 
 const Navbar = (props) => {
-    const stats = useSelector(state => state.perks)
+    const stats = useSelector(state => state.pcSlice)
 
     const showState = () => {
         console.log(stats)
