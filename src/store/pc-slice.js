@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStats = {
+const initialState = {
     name: '',
     age: '',
     height: '',
-    race: '',
+    race: 'human',
     religion: '',
     sex: '',
     weight: '',
@@ -18,7 +18,7 @@ const initialStats = {
 
 const pcSlice = createSlice({
     name: 'pcSlice',
-    initialState: initialStats,
+    initialState: initialState,
     reducers: {
         initStat(state, action) {
             const stat = action.payload;
@@ -29,8 +29,8 @@ const pcSlice = createSlice({
             state[`max${stat}`] = 5;
         },
         setPc(state, action) {
-            const value = action.payload.value;
             const stat = action.payload.stat;
+            const value = action.payload.value;
             state[stat] = value;
         },
         addStat(state, action) {
