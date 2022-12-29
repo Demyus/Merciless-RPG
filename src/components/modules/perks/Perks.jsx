@@ -38,6 +38,7 @@ const perks = [
 ] 
 
 const Perks = (props) => {
+  const stats = useSelector(state => state.charStats);
   const perkSlice = useSelector(state=>state.perks);  
   const perkSlots = [];
 
@@ -63,7 +64,7 @@ const Perks = (props) => {
     <Card>
         <h4 className="text-center boldu">Perks</h4>
         <div className="col-sm-12">
-            <p id="racial_feat"><b>Racial Feat:</b> other</p>
+            <p id="racial_feat"><b>Racial Feat:</b> {stats.racialPerk}</p>
         </div>
         {perkSlots}
         

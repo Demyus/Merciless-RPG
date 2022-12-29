@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const perksSlice = createSlice({
     name: 'perks',
     initialState: {
-            slots: 1,
+            slots: 2,
             slot1: 0, 
             slot2: 0, 
             slot3: 0, 
