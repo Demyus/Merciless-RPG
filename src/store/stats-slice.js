@@ -69,8 +69,21 @@ const initialStats = {
     maxDefiling: 5,
     'maxSpirit Warrior': 5,
     maxShadow: 5,
-    'maxDiamond Fist': 5
+    'maxDiamond Fist': 5,
+    racialPerk: '2 Perks',
+}
 
+const resetStats = {
+    maxStrength:  5,
+    maxAgility:   5,
+    maxStamina:   5,
+    maxCharisma:  5,
+    maxEvocation: 5,
+    maxBlades:    5,
+    maxBlunt:     5,
+    maxPierce:    5,
+    maxRanged:    5,
+    racialPerk:   '2 Perks',
 }
 
 const charStatSlice = createSlice({
@@ -93,13 +106,59 @@ const charStatSlice = createSlice({
         addStat(state, action) {
             const stat = action.payload;
             state[stat] = state[stat] + 1;
-           // console.log(stat);
         },
         removeStat(state, action) {
             const stat = action.payload;
             state[stat] = state[stat] - 1;
-           // console.log(stat);
-        }
+        },
+        setPcRace(state, action) {
+            Object.keys(resetStats).map(item => {
+              return  state[item] = resetStats[item];
+            });
+
+            const race = action.payload;
+            switch (race) {
+                case 'elf':
+                    state.maxAgility = 6;
+                    state.maxStamina = 4;
+                    state.racialPerk = 'Low light Vision';
+                    break;
+                case 'dwarf':
+                    state.maxStamina = 6;
+                    state.maxAgility = 4;
+                    state.racialPerk = 'Darkvision';
+                    break;
+                case 'goblin':
+                    state.maxStamina = 4;
+                    state.maxStrength = 4;
+                    state.maxBlades = 6;
+                    state.maxBlunt = 6;
+                    state.maxPierce = 6;
+                    state.maxRanged = 6;
+                    state.maxEvocation = 6;
+                    state.racialPerk = 'Low light vision';
+                    break;
+                case 'halfelf':
+                    state.maxStamina = 4;
+                    state.maxCharisma = 6;
+                    state.racialPerk = 'Low light vision';
+                    break;
+                case 'orc':
+                    state.maxStrength = 6;
+                    state.maxStamina = 6;
+                    state.maxAgility = 3;
+                    state.racialPerk = 'Low light vision';
+                    break;
+                case 'halfling':
+                    state.maxStrength = 4;
+                    state.maxAgility = 6;
+                    state.racialPerk = 'Starts with GUTS perk';
+                    break;
+                default:
+                    //human
+                    break;
+            }
+        },
     }
 })
 

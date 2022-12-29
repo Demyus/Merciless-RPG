@@ -4,7 +4,6 @@ import { pcActions } from "../../store/pc-slice";
 import { charStatActions } from "../../store/stats-slice";
 
 
-
 const RaceSelect = props => {
     const dispatch = useDispatch();
     const refRace = useRef('human');
@@ -12,6 +11,7 @@ const RaceSelect = props => {
 
     const raceChangeHandler = () => {
         dispatch(pcActions.setPc({stat: 'race', value: refRace.current.value }));
+        dispatch(charStatActions.setPcRace(refRace.current.value));
     }
 
     return (
