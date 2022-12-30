@@ -37,12 +37,32 @@ const perks = [
   { id: 31, name: 'Weapon Mastery',        desc: 'Gain +2 Dice to your attack DP for your weapon of choice'},
 ] 
 
+const gutsPerk = [  
+  { id: 20, name: 'Guts',                  desc: 'Character hypes himself up to resist fear or intimidation tests. +2 to your saving throws DP on fear and intimidation checks'},
+]
+
 const Perks = (props) => {
   const stats = useSelector(state => state.charStats);
+  const pc = useSelector(state => state.pcSlice);
   const perkSlice = useSelector(state=>state.perks);  
   const perkSlots = [];
 
   const generatePerkSlots = () => {
+    if(pc.race === 'halfling') {
+      perkSlots.push( 
+        <PerksList 
+          key = 'perkoSlotRacial'
+          slot = 'slotRacial'
+          perks = {gutsPerk} 
+          controls = {false}
+          first = {true}
+          last = { false }
+          slots = {perkSlice.slots}
+        />
+      )
+    }
+
+
     for (let x = 1; x <= perkSlice.slots; x++) {
       perkSlots.push( 
         <PerksList 
