@@ -38,7 +38,7 @@ const perks = [
 ] 
 
 const gutsPerk = [  
-  { id: 20, name: 'Guts',                  desc: 'Character hypes himself up to resist fear or intimidation tests. +2 to your saving throws DP on fear and intimidation checks'},
+  { id: 20, name: 'Guts', desc: 'Character hypes himself up to resist fear or intimidation tests. +2 to your saving throws DP on fear and intimidation checks'},
 ]
 
 const Perks = (props) => {
@@ -53,11 +53,12 @@ const Perks = (props) => {
         <PerksList 
           key = 'perkoSlotRacial'
           slot = 'slotRacial'
-          perks = {gutsPerk} 
-          controls = {false}
-          first = {true}
+          single = { true } 
+          perks = { gutsPerk } 
+          controls = { false }
+          first = { true }
           last = { false }
-          slots = {perkSlice.slots}
+          slots = { perkSlice.slots }
         />
       )
     }
