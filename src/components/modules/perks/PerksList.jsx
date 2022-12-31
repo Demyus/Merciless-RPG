@@ -6,6 +6,8 @@ import { perksActions } from "../../../store/perks-slice";
 const PerksList = (props) => {
   const perks = props.perks;
   const [currentPerkDesc, setCurrentPerkDesc] = useState('...');
+  const singleDesc = perks[0].desc;
+  
   const selectedPerk = useRef();
   const dispatch = useDispatch();
   
@@ -37,7 +39,7 @@ const PerksList = (props) => {
         </select>
         </div>
         <div className="col-sm-9 ps-1">
-        <textarea className="form-control" disabled value={currentPerkDesc}></textarea>
+        <textarea className="form-control" disabled value={props.single ? singleDesc : currentPerkDesc}></textarea>
         </div>
         <div className="col-sm-1 hstack px-0">
            { props.controls && 
